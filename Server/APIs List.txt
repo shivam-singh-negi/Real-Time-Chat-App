@@ -1,0 +1,7 @@
+UserRoutes=>usersModel
+Api name=>REST API TYPE=>INPUTS=>ROUTES
+->GetAllUSersApi=>GET=>none=>http://localhost:5000/api/users/getAllUsers
+->findUserByIdApi=>GET=>userId=>http://localhost:5000/api/users/findUser/"userId"
+->userLoginApi=>POST=>{"email":"sfda@gmail.com","password":"Alpha@1"}=>http://localhost:5000/api/users/login
+->userRegisterApi=>Post=>{"name":"xsjf","email":"asfdsd@gmail.com","password":"Aadsfkj#"}=>http://localhost:5000/api/users/register
+
