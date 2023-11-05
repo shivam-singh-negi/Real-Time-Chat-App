@@ -27,6 +27,7 @@ return res.status(400).json("User With Same Name Already Exist. Choose a Differe
 
     await user.save();
     const token=createToken(user._id)
+    
     res.status(200).json({_id:user._id, name,email,token})
    } catch (error) {
     
