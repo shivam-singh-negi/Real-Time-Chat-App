@@ -5,3 +5,8 @@ Api name=>REST API TYPE=>INPUTS=>ROUTES
 ->userLoginApi=>POST=>{"email":"sfda@gmail.com","password":"Alpha@1"}=>http://localhost:5000/api/users/login
 ->userRegisterApi=>Post=>{"name":"xsjf","email":"asfdsd@gmail.com","password":"Aadsfkj#"}=>http://localhost:5000/api/users/register
 
+ChatRoutes=>chatModels
+Api name=>REST API TYPE=>INPUTS=>ROUTES
+=>createChat=>POST=>None=>http://localhost:5000/api/chats
+=>findUserChats=>GET=>None=>http://localhost:5000/api/chats/65440b9bd0c2445bb8f9e864
+=>findChat=>Get=>None=>http://localhost:5000/api/chats/find/65440b9bd0c2445bb8f9e864/65440f1adf12f91b199f16f9
