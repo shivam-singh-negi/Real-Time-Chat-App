@@ -4,9 +4,10 @@ import UserChat from '../Components/chat/userChat.jsx'
 import { ChatContext } from '../Context/ChatContext.jsx'
 import {AuthContext} from "../Context/AuthContext.jsx"
 import { PotentialChats } from '../Components/chat/PotentialChats.jsx'
+import { ChatBox } from '../Components/chat/ChatBox.jsx'
 export const Chat = () => {
   const {user}=useContext(AuthContext)
-  const { userChats, isUserChatsError, isUserChatsLoading}=useContext(ChatContext)
+  const { userChats, isUserChatsError, isUserChatsLoading,updateCurrentChat}=useContext(ChatContext)
   
   return (
     <Container>
@@ -20,14 +21,15 @@ export const Chat = () => {
           }
           {userChats?.map((chat,index)=>{
             return(
-              <div key={index}>
-                <UserChat chat={chat} user={user}/> </div>
+              <div key={index} onClick={()=>updateCurrentChat(chat)}>
+                <UserChat chat={chat} user={user}/> 
+                </div>
             )
           })
           }
           
         </Stack>
-<p>ChatBox</p>
+<ChatBox/>
       </Stack>
     )
   }

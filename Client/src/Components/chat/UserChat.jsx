@@ -2,8 +2,7 @@ import { Stack } from "react-bootstrap"
 import { useFetchRecipientUser } from "../../hooks/useFetchRecipient"
 import avatar from "../../assets/avtar.svg"
 const UserChat=({chat,user})=>{
-    const {recipientUser}=useFetchRecipientUser(chat,user)
-    console.log("user:",recipientUser)
+    const {recipientUser}=useFetchRecipientUser(chat,user);
     return (
         <>
 <Stack direction="horizontal"gap={3} className="user-card align-items-center p-2 justify-content-between" role="button" >
