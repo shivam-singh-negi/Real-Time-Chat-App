@@ -12,14 +12,16 @@ export const ChatContextProvider = ({ children, user }) => {
     const [messages,setMessages]=useState(null)
     const [isMessagesLoading,setIsMessagesLoading]=useState(false)
     const [messagesError,setMessagesError]=useState(null);
+    const [sendTextMessageError,setSendTextMessageError]=useState(null);
+    const [newMessage,setNewMessage]=useState(null)
 
-console.log("cc",currentChat)
-console.log("uc",userChats)
+
+
+
     useEffect(()=>{
       const getUsers=async()=>{
         const response=await getRequest(`${baseUrl}/users/getAllUsers`);
         if(response.error)return console.log("Error Fetching users",response);
-        console.log("hiii",response)
 
         const pChats=response.filter((u)=>{
           let isChatCreated=false;
@@ -70,7 +72,6 @@ console.log("uc",userChats)
           setMessagesError(null);
   
             const response = await getRequest(`${baseUrl}/messages/fetchMessages/${currentChat?._id}`); // Assuming getRequest is defined
-            console.log("response",response)
             setIsMessagesLoading(false);
   
             if (response.error) {
@@ -103,12 +104,26 @@ console.log("uc",userChats)
 
 
 
+    const sendTextMessage=useCallback(async(textMessage,sender,currentChatId,setTextMessage)=>{
+if(!textMessage)return console.log("You must type something");
+const response=await postRequest(`${baseUrl}/messages`,JSON.stringify({
+  "chatId":currentChatId,
+  "senderId":sender,
+  "message":textMessage
+}))
+
+console.log("ress",response)
+if (response.error){return setSendTextMessageError(response)}
+setNewMessage(response.message)
+setMessages((prev)=>[...prev,response]);
+setTextMessage("")
+    },[])
 
 
 
 
     return (
-      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError}}>
+      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError,sendTextMessage}}>
         {children}
       </ChatContext.Provider>
     );
