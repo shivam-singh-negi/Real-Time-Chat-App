@@ -9,17 +9,17 @@ io.on('connection', (socket) => {
   
     // Handle the "addNewUser" event from the client
     socket.on("addNewUser", (userId) => {
-      if (userId && !onlineUsers.some((user) => user.userId === userId)) {
+       !onlineUsers.some((user) => user.userId === userId) &&
         onlineUsers.push({
           userId,
           socketId: socket.id,
         });
-      }
-      
-  
+       
       // Broadcast the updated online users list to all connected clients
       io.emit("getOnlineUsers", onlineUsers);
     });
+
+
 //add ,essage
 socket.on("sendMessage",(message)=>{
   const user=onlineUsers.find((user)=>user.userId === message.recipientId)
@@ -32,7 +32,7 @@ socket.on("sendMessage",(message)=>{
     socket.on("disconnect",()=>{
       onlineUsers=onlineUsers.filter((user)=>user.socketId !== socket.id);
       io.emit("getOnlineUsers",onlineUsers)
-    })
+    });
 
 
   });
