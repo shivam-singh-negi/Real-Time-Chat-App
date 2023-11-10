@@ -137,7 +137,7 @@ socket.on("getNotification",(res)=>{
       };
   
       getUserChats();
-    }, [user]);
+    }, [user,notifications]);
   
  console.log("messages",messages)
     useEffect(() => {
@@ -242,7 +242,7 @@ setNotifications(mNotifications)
 
 
     return (
-      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError,sendTextMessage,onlineUsers,notifications,allUsers,markAllNotificationsAsRead,markNotificationAsRead,markThisUserNotificationsAsRead
+      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError,sendTextMessage,onlineUsers,notifications,allUsers,markAllNotificationsAsRead,markNotificationAsRead,markThisUserNotificationsAsRead,newMessage
       }}>
         {children}
       </ChatContext.Provider>
