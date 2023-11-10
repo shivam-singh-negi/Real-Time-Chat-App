@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthContext } from '../../Context/AuthContext'
 import { ChatContext } from '../../Context/ChatContext';
 import { useFetchRecipientUser } from '../../hooks/useFetchRecipient';
-import { useContext,useState } from 'react';
+import { useContext,useState,useRef,useEffect } from 'react';
 import { Stack } from 'react-bootstrap';
 import InputEmoji  from "react-input-emoji"
 
@@ -12,8 +12,11 @@ export const ChatBox = () => {
     const {currentChat,messages,isMessagesLoading,sendTextMessage}=useContext(ChatContext);
     const {recipientUser}=useFetchRecipientUser(currentChat,user);
     const [textMessage,setTextMessage]=useState("")
-    
+    const scroll=useRef();
    console.log("text",textMessage)
+   useEffect(()=>{
+    scroll.current?.scrollIntoView({behavior:"smooth"})
+   },[messages])
    if(!recipientUser)
    return(
     <p>No conversation selected yet...</p>
@@ -29,7 +32,7 @@ export const ChatBox = () => {
     <Stack gap={2} className="messages">
   {messages &&
     messages.map((text, index) => (
-      <Stack key={index} className={`${text?.senderId===user?._id ? "message self align-self-end flex-grow-0":"message self align-self-start flex-grow-0"}`}>
+      <Stack key={index} className={`${text?.senderId===user?._id ? "message self align-self-end flex-grow-0":"message self align-self-start flex-grow-0"}`} ref={scroll}>
         <span>{text.message}</span>
         <span className="message-footer">{moment(text.createdAt).calendar()}</span> 
       </Stack>

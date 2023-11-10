@@ -18,7 +18,8 @@ export const ChatContextProvider = ({ children, user }) => {
 const [socket,setSocket]=useState(null)
 
 
-useEffect(()=>{const newSocket=io("http://localhost:3000")
+useEffect(()=>{
+  const newSocket=io("http://localhost:3000")
 setSocket(newSocket);
 console.log("newsocket",newSocket)
 
@@ -37,7 +38,6 @@ useEffect(() => {
 
   // Listen for the "getOnlineUsers" event from the server
   socket.on("getOnlineUsers", (res) => {
-    console.log("Online users:", res);
     setOnlineUsers(res);
   });
 
@@ -64,12 +64,15 @@ useEffect(() => {
 
 useEffect(() => {
   if (socket === null) return;
+  
   socket.on("getMessage",(res)=>{
 if(currentChat?._id !== res.chatId)return;
 setMessages((prev)=>[...prev,res]);
 })
 
-
+ return ()=>{
+  socket.off("getMessage")  
+ }
 }, [socket,currentChat]);
 
 
@@ -165,7 +168,7 @@ setMessages((prev)=>[...prev,res]);
 if(!textMessage)return console.log("You must type something");
 const response=await postRequest(`${baseUrl}/messages`,JSON.stringify({
   "chatId":currentChatId,
-  "senderId":sender,
+  "senderId":sender._id,
   "message":textMessage
 }))
 
