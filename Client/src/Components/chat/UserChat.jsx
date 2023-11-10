@@ -6,7 +6,7 @@ import { ChatContext } from "../../Context/ChatContext";
 import { unreadNotificationsFunc } from "../../Utils/unreadNotifications";
 const UserChat=({chat,user})=>{
     const {recipientUser}=useFetchRecipientUser(chat,user);
-   const {onlineUsers,notifications}=useContext(ChatContext)
+   const {onlineUsers,notifications,markThisUserNotificationsAsRead}=useContext(ChatContext)
    const isOnline=onlineUsers?.some((user)=>user?.userId===recipientUser?.user._id)
    const unreadNotification=unreadNotificationsFunc(notifications);
    const thisUserNotifications=unreadNotification?.filter(
@@ -14,7 +14,11 @@ const UserChat=({chat,user})=>{
    )
     return (
         <>
-<Stack direction="horizontal"gap={3} className="user-card align-items-center p-2 justify-content-between" role="button" >
+<Stack direction="horizontal"gap={3} className="user-card align-items-center p-2 justify-content-between" role="button"  onClick={()=>{
+    if(thisUserNotifications?.length !== 0){
+        markThisUserNotificationsAsRead(thisUserNotifications,notifications)
+    }
+}}>
     <div className="d-flex">
         <div className="me-2"><img src={avatar} height="35px"/></div>
         <div className="text-content">

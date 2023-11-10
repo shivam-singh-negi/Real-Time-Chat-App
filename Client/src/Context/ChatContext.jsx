@@ -222,11 +222,27 @@ setMessages((prev)=>[...prev,response]);
 setTextMessage("")
     },[])
 
+const markThisUserNotificationsAsRead=useCallback((thisUserNotifications,notifications)=>{
+  const mNotifications=notifications.map((el)=>{
+    let notification;
+    thisUserNotifications.forEach(n=>{
+      if(n.senderId===el.senderId){
+        notification={...n,isRead:true}
 
+      }
+      else{
+        notification=el
+      }
+    })
+    return notification;
+  })
+
+setNotifications(mNotifications)
+},[])
 
 
     return (
-      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError,sendTextMessage,onlineUsers,notifications,allUsers,markAllNotificationsAsRead,markNotificationAsRead
+      <ChatContext.Provider value={{ userChats, isUserChatsError, isUserChatsLoading,potentialChats,setPotentialChats,createChat,currentChat,updateCurrentChat,messages,isMessagesLoading,messagesError,sendTextMessage,onlineUsers,notifications,allUsers,markAllNotificationsAsRead,markNotificationAsRead,markThisUserNotificationsAsRead
       }}>
         {children}
       </ChatContext.Provider>
