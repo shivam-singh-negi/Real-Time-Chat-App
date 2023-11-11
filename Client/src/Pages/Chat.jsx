@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Container, Stack } from 'react-bootstrap'
-import {UserChat} from '../Components/chat/UserChat.jsx'
+import UserChat from '../Components/chat/UserChat.jsx'
 import { ChatContext } from '../Context/ChatContext.jsx'
 import {AuthContext} from "../Context/AuthContext.jsx"
 import { PotentialChats } from '../Components/chat/PotentialChats.jsx'
