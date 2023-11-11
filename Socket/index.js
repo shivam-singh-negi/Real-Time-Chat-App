@@ -1,4 +1,9 @@
 const { Server } = require('socket.io');
+require("dotenv").config()
+
+
+
+const Port = process.env.Port||5000;
 
 const io = new Server({cors:"*"});
 
@@ -43,4 +48,4 @@ socket.on("sendMessage",(message)=>{
 
 
   });
-io.listen(3000)
+io.listen(Port)
