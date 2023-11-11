@@ -48,4 +48,6 @@ socket.on("sendMessage",(message)=>{
 
 
   });
-io.listen(Port)
+  io.listen(Port).on('listening', () => {
+    console.log(`Socket.IO server is listening on port ${Port}`);
+  });
