@@ -1,9 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "socket/**/*", "use": "@vercel/node" }
+    { "src": "index.js ","use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/socket/(.*)", "dest": "socket/$1" }
+    { "src": "/socket/(.*)", "dest": "/" }
   ]
 }
