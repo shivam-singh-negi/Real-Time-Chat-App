@@ -1,6 +1,6 @@
 body{
-    background: rgb(40, 40, 40);
-    color: white;
+    background:rgb(43, 76, 75);
+    color: silver;
 }
 .all-users {
     display: flex;
@@ -8,8 +8,8 @@ body{
   }
   
   .single-user {
-    background: rgb(0, 213, 255);
-    color: white;
+    background:yellow;
+    color: black;
     cursor: pointer;
     padding: 5px 7px;
     border-radius: 10px;
@@ -21,7 +21,7 @@ body{
   .user-card {
     color: white;
     position: relative;
-    border-bottom: 1px solid rgb(100, 100, 100);
+    border-bottom: 1px solid rgb(195, 29, 17);
     width: 380px;
   }
   
@@ -44,7 +44,7 @@ body{
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: rgb(0, 219, 0);
+    background: rgb(94, 243, 94);
     position: absolute;
     top: -3px;
     right: -3px;
@@ -55,7 +55,7 @@ body{
   .chat-box {
     max-height: calc(100vh - 10rem);
     overflow-y: auto;
-    background: rgb(25, 25, 25);
+    background: rgb(199, 199, 232);
     border-radius: 10px;
   }
   
@@ -70,7 +70,7 @@ body{
     justify-content: center;
     padding: 0.75rem;
     color: white;
-    background: rgb(30, 30, 30);
+    background: rgb(188, 148, 148);
   }
   
   /* Messages */
@@ -82,7 +82,7 @@ body{
   
   .message {
     color: white;
-    background: #282828;
+    background: #b71e1e;
     padding: 0.75rem;
     border-radius: 5px;
     max-width: 50%;
@@ -90,7 +90,7 @@ body{
   
   .message.self {
     color: white;
-    background: #00bd9b;
+    background: #4164d7;
   }
   
   .message-footer {

@@ -12,13 +12,13 @@ export const NavBar = () => {
 
   return (
    <>
-   <Navbar bg="dark" className='mb-5' style={{height:"3.75rem"}}>
+   <Navbar  className='mb-5' style={{height:"3.75rem",backgroundColor:"green"}}>
     <Container>
         <h2>
-            <Link to={"/"} className="link-light text-decoration-none">ChatNow</Link>
+            <Link to={"/"} className="link-light text-decoration-none">ChattyChat.com</Link>
         </h2>
         { user && (<>
-                        <span className='text-warning'>Logged in as {user?.name}</span>
+                        <span className='text-warning'>Welcome {user?.name}</span>
                 </>)}
         <Nav>
             <Stack direction="horizontal" gap={3}>

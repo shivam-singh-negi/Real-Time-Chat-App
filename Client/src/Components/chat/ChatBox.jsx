@@ -26,7 +26,7 @@ export const ChatBox = () => {
     <p style={{textAlign:"center",width:"100%"}}>Loading chat...</p>
    )
    
-   return <Stack gap={4} className="chat-box">
+   return <Stack gap={4} className="chat-box" style={{backgrounColor:"white"}}>
     <div className='chat-header'>
     <strong>{recipientUser?.user.name}</strong></div>
     <Stack gap={2} className="messages">

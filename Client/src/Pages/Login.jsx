@@ -10,7 +10,7 @@ export const Login = () => {
       <Row style={{height:"100vh", justifyContent:"center",paddingTop:"10px"}}>
         <Col xs={12} lg={6}>
           <Stack gap={4}>
-            <h2>Register</h2>
+            <h2>Login</h2>
             <Form.Control type="email" placeholder="Email" onChange={(e)=>updateLoginInfo({...loginInfo,email:e.target.value})} />
             <Form.Control type="password" placeholder="Password"onChange={(e)=>updateLoginInfo({...loginInfo,password:e.target.value})} />
            
