@@ -28,3 +28,7 @@ inside of the .env we have=>
 Now play with the app and share it with your friends.
 
 
+App Preview->
+
+https://github.com/shivam-singh-negi/Real-Time-Chat-App/assets/56045882/86150ac2-e633-4039-93fc-51b3c12091c3
+
