@@ -1,31 +1,107 @@
-# Real-Time-Chat-App
-Author-Shivam Singh Negi
-A real time chat application-
-Tech Stack: MERN Stack
+# Real-Time Chat Application
 
+## Author: Shivam Singh Negi
 
-Description:
-A real time chat application that using Socket Io. User can register, login and see who all are active and can send emojis and text.
+## Tech Stack: MERN Stack (MongoDB, Express, React, Node.js) + Socket.io
 
-Installing:
-1)Clone the repo into your local system.
-2) go to root directory  type : npm install
-3) then Go inside each of Client, Server and Socket, and install the respective packages there using npm install.
-4) Set Up connection with the database : Create a .env file inside Server and  paste the env variable there
-inside of the .env we have=>
-    DB_URI=Your monogo db connector
-    JWT_SECRET_KEY=Your JWT secret key (can be any random one)
-    Port=5000  (it can also be as per your desire)
-5) Create the .env file inside the Socket dir as well :
- inside of the .env we have=>
- Port=3000 (can be any port no. but not same as of the server port used in Server directory)
+### Description
+A real-time chat application using Socket.io that allows users to:
+- Register and log in
+- See active users
+- Send text messages and emojis in real-time
 
-6) How to run=>
-   a) Go inside the Server =>type=> nodemon  (this will start the backend)
-   b) Go inside the Client=>type=> npm run dev (this will start the frontend)
-   c) Go inside of the Socket =>type=> node index.js (this will initiate the Socket server for real time message events)
+---
 
-Now play with the app and share it with your friends.
+## Installation Guide
+
+### Prerequisites
+Ensure you have the following installed on your system:
+- Node.js
+- MongoDB (or an online MongoDB Atlas cluster)
+- npm (Node Package Manager)
+
+### Steps to Install
+1. **Clone the repository**
+   ```sh
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Navigate into each directory (`Client`, `Server`, and `Socket`) and install dependencies**
+   ```sh
+   cd Client && npm install
+   cd ../Server && npm install
+   cd ../Socket && npm install
+   ```
+
+4. **Set up the database connection**
+   - Inside the `Server` directory, create a `.env` file and add the following variables:
+     ```env
+     DB_URI=your_mongo_db_connector
+     JWT_SECRET_KEY=your_jwt_secret_key  # Can be any random secure key
+     PORT=5000  # You can change this port if needed
+     ```
+
+5. **Set up the Socket server**
+   - Inside the `Socket` directory, create a `.env` file and add the following:
+     ```env
+     PORT=3000  # Choose any port, but it should be different from the server port
+     ```
+
+---
+
+## Running the Application
+
+Follow these steps to start the application:
+
+1. **Start the backend server**
+   ```sh
+   cd Server
+   nodemon
+   ```
+
+2. **Start the frontend**
+   ```sh
+   cd Client
+   npm run dev
+   ```
+
+3. **Start the Socket server**
+   ```sh
+   cd Socket
+   node index.js
+   ```
+
+Now, the application is running! Open the frontend in your browser and start chatting in real-time.
+
+---
+
+## App Preview
+(Add screenshots or a demo video link here)
+
+---
+
+## Features
+- User authentication (Register/Login)
+- Active user status
+- Real-time messaging with Socket.io
+- Support for emojis and text
+
+---
+
+## Contributing
+If you want to contribute, feel free to submit a pull request or report issues.
+
+---
+
+## License
+(Add license details if applicable)
+
 
 
 App Preview->
