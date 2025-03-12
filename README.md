@@ -79,29 +79,12 @@ Follow these steps to start the application:
 
 Now, the application is running! Open the frontend in your browser and start chatting in real-time.
 
----
-
-## App Preview
-(Add screenshots or a demo video link here)
-
----
 
 ## Features
 - User authentication (Register/Login)
 - Active user status
 - Real-time messaging with Socket.io
 - Support for emojis and text
-
----
-
-## Contributing
-If you want to contribute, feel free to submit a pull request or report issues.
-
----
-
-## License
-(Add license details if applicable)
-
 
 
 App Preview->
